@@ -7,7 +7,7 @@ const readStaticFile = (path) => {
   return fs.createReadStream("./public" + path);
 };
 server.on("request", (req, res) => {
-  res.setHeader("Cache-control", "max-age=86400");
+  res.setHeader("Cache-Control", "no-store");
   switch (req.url) {
     case "/":
       readStaticFile("/index.html").pipe(res);
